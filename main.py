@@ -14,6 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+
+#TODO get the error messages to display in the UI without having the queries in the URL
+#TODO ensure validations operate correctly
+#TODO position error messages next to the form elements they refer to
+
+
 import webapp2
 import re
 import cgi
@@ -142,7 +149,7 @@ class welcome(webapp2.RequestHandler):
 
         if validPassword(password) == 'False':
             passwordErrorMessage="That is not a valid password"
-            self.redirect("/signup?error=" + usernameErrorMessage)
+            self.redirect("/signup?error=" + passwordErrorMessage)
 
         if password != verify:
             verifyErrorMessage="Your passwords don't match"
